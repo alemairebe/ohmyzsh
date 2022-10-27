@@ -83,6 +83,7 @@ alias kdelcm='kubectl delete configmap'
 
 # Secret management
 alias kgsec='kubectl get secret'
+alias kgsecp='kubectl get secret -o go-template='\''{{range $k,$v := .data}}{{"### "}}{{$k}}{{"\n"}}{{$v|base64decode}}{{"\n\n"}}{{end}}'\'''
 alias kgseca='kubectl get secret --all-namespaces'
 alias kdsec='kubectl describe secret'
 alias kdelsec='kubectl delete secret'

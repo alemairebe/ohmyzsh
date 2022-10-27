@@ -60,6 +60,7 @@ plugins=(... kubectl)
 | kdelcm  | `kubectl delete configmap`          | Delete the configmap                                                                             |
 |         |                                     | **Secret management**                                                                            |
 | kgsec   | `kubectl get secret`                | Get secret for decoding                                                                          |
+| kgsecp  | `kubectl get secret -o go-template='{{range $k,$v := .data}}{{"### "}}{{$k}}{{"\n"}}{{$v|base64decode}}{{"\n\n"}}{{end}}'` | Get secret in plaintext |
 | kdsec   | `kubectl describe secret`           | Describe secret resource in detail                                                               |
 | kdelsec | `kubectl delete secret`             | Delete the secret                                                                                |
 |         |                                     | **Deployment management**                                                                        |
